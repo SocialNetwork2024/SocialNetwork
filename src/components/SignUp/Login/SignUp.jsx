@@ -2,19 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button';
 
 
-// const [firstName, setfirstName] = useState();
-// const [lastName, setlastName] = useState();
-// const [emailAdress, setemailAdress] = useState();
-// const [userName, setuserName] = useState();
-// const [age, setage] = useState();
-// const [passWord, setpassWord] = useState();
 
-// const url = ""
-// const handleCreate =()=> {
-//   axios.post(url)
-//   .then((res)=>console.log("object"))
-//   .catch((errorr)=>{console.log("error")})
-// }
 
 const SignUp = () => {
   return (
@@ -36,19 +24,12 @@ const SignUp = () => {
     
     <label >Passowrd</label>
     <input type="password" onChange={(e)=>{console.log(e.target.value)}} required/>
-    <Button variant="contained" color="success" size='small'
-    // onClick={()=>{handleCreate(id,
-    //   {
-    //   firstName:firstName,
-    //   lastName:lastName,
-    //   userName:userName,
-    //   age:age,
-    //   emailAdress,emailAdress,
-    //   passWord:passWord  
-    //   }
-    //   )}} 
-      >SignUp</Button>
-  
+
+     <Button variant="contained" color="success" size='small'
+    
+ 
+      >SignUp</Button> 
+   
   </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 
 const Login = () => {
   return (
@@ -9,7 +9,7 @@ const Login = () => {
       <label>Passowrd</label>
       <input type="password" />
       <button type='submit'>LogIn</button>
-      <Button variant="contained" color="success" size='small'>Submit</Button>
+      {/* <Button variant="contained" color="success" size='small'>Submit</Button> */}
   </div>
   )
 }

@@ -1,15 +1,17 @@
-const express = require ('express')
+const express = require('express')
+const cors = require('cors')
+const postRouter = require('./Routes/PostsRoutes')
 
-const cors = require ('cors') 
-const app = express()
 const PORT = 3000
-app.use(express.json())
-app.use(cors())
+const app = express()
 
-app.get('/', (req,res)=>{
-    res.send("hello")
-})
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.use(express.static(__dirname + "/../dist"))
+
+app.use('/post', postRouter)
 
 app.listen(PORT, ()=>{
-console.log("listenin to port"+PORT)
+    console.log(`listening on http://localhost:${PORT}`);
 })

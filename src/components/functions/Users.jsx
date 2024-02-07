@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Button from '@mui/material/Button';
 const Users = () => {
   return (
     <div className="container">
@@ -19,6 +19,7 @@ const Users = () => {
 <label>Confirm Your Password</label>
 <input type="password" />
 
+<Button>Update</Button>
 
 
     </div>
