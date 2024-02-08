@@ -2,11 +2,11 @@ import React from "react";
 import Left from "./Left";
 import Middle from "./Middle";
 import Right from "./Right"
-const Main =({post})=> {
+const Main =()=> {
     return (
         <div style={{"display":"flex"}} >
             <Left/>
-            <Middle post={post}/>
+            <Middle />
             <Right/>
         </div>
     )
