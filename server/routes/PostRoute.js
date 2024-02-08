@@ -3,6 +3,8 @@ const controller = require('../controller/PostController')
 
 router.get('/getall', controller.getAll)
 
+router.get('/getlikeComment/:id', controller.getLikesComments)
+
 router.post('/add', controller.addPost)
 
 router.put('/edit/:id', controller.editPost)

@@ -21,7 +21,11 @@ Post.hasMany(Like)
 db.sync()
 
 const fetchAllPost = () => {
-    return Post.findAll({include: Like, Comment})
+    return Post.findAll({include: [Like, Comment]})
+}
+
+const fetchLikesComments = (id) => {
+    return Post.findByPk(id, {include: [Like, Comment]})
 }
 
 const createPost = (data, file) => {
@@ -36,4 +40,4 @@ const deletPost = (id) => {
     return Post.destroy({where: {id: id}})
 }
 
-module.exports = {Post, fetchAllPost, createPost, updatePost, deletPost}
+module.exports = {Post, fetchAllPost, fetchLikesComments, createPost, updatePost, deletPost}
