@@ -1,7 +1,7 @@
 import React from "react";
 import ActionAreaCard from "../../Post";
 // import Button from '@mui/material/Button';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 const Right = ()=>{
     return (
         <section className="sider" >

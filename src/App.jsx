@@ -18,6 +18,7 @@ const App = () =>{
   
   
   const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
   
   
   useEffect(()=>{
@@ -27,23 +28,20 @@ const App = () =>{
     .catch((error)=>{console.log("error")})    
   },[])
   
-  
-  
-  
-  
-  
-  
+
+
+ 
   //   useEffect(()=>{
     //     axios.get("url")
-    // .then((res)=>{setPosts(res.data),console.log(res.data)})
+    // .then((res)=>{setComments(res.data),console.log(res.data)})
     // .catch((error)=>{console.log("error")})    
     //   })
-    
-    //   useEffect(()=>{
-      //     axios.get("url")
-      // .then((res)=>{setComments(res.data),console.log(res.data)})
-      // .catch((error)=>{console.log("error")})    
-      //   })
+  
+  
+  
+  
+  
+
       
       
       
@@ -59,7 +57,7 @@ const App = () =>{
             <li><img src="https://media.istockphoto.com/id/1388253782/photo/positive-successful-millennial-business-professional-man-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=v0FzN5RD19wlMvrkpUE6QKHaFTt5rlDSqoUV1vrFbN4=" alt="propict" className='propic'/></li>
           <li><a href="/login">LogIn</a></li>
           <li><a href="/posts">Posts</a></li>
-          <li><a href="/createpost">Create a Post</a></li>
+      
 
          
    
@@ -73,7 +71,6 @@ const App = () =>{
         <Route path ="/" element={<Sign/>}/>
         <Route path ="/home" element={<Main/>}/>
         <Route path ="/posts" element={<PostDetails posts={posts}/>}/>
-        <Route path='/createpost' element={<CreatePost />}/>
         <Route path ="/profil" element={<Profil/>}/>
         {/* <Route path="User" element={<SingleProfile single={single}/>}/> */}
         
@@ -94,11 +91,3 @@ const App = () =>{
   // import UsersDetails from './components/UsersDetails.jsx';
   // import SingleProfile from './components/SingleProfile.jsx';
 //   const [users, setUsers] = useState([]);
-//   const [comments, setComments] = useState([]);
-// const [single,setSingle]=useState({})
-//   const getSingle=("id")=>{
-//     axios.get('http://localhost:3000/post/getAll')
-//     .then((res)=>{setSingle(res.data), console.log("deleted")})
-//     .catch((error)=>{console.log("error")})   
-// }
- 

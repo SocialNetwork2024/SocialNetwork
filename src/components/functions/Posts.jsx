@@ -23,7 +23,7 @@ const handleDelete=(id)=>{
     <div  className='posts'>
                 <h3>{post.body}</h3>
                <img src={post.file} alt="" style={{"width":"480","height":"240px"}}/> 
-
+{/* <p>{body.comments}</p> */}
       
 <input type="text" onChange={(e)=>{setBody(e.target.value)}}/>
 <input type="file" onChange={(e)=>{setFile(e.target.value)}}/>
