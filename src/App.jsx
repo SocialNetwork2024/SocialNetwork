@@ -12,6 +12,7 @@ import Profil from './components/Profile/Main.jsx'
 import Users from './components/functions/Users.jsx'
 import PostDetails from './components/functions/PostDetails.jsx'
 import axios from 'axios'
+import CreatePost from './components/functions/CreatePost.jsx'
 
 const App = () =>{
   
@@ -21,7 +22,8 @@ const App = () =>{
   
   useEffect(()=>{
     axios.get('http://localhost:3000/post/getAll')
-    .then((res)=>{console.log(res.data),setPosts(res.data)})
+    .then((res)=>{console.log(res.data);
+      setPosts(res.data)})
     .catch((error)=>{console.log("error")})    
   },[])
   
@@ -57,6 +59,7 @@ const App = () =>{
             <li><img src="https://media.istockphoto.com/id/1388253782/photo/positive-successful-millennial-business-professional-man-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=v0FzN5RD19wlMvrkpUE6QKHaFTt5rlDSqoUV1vrFbN4=" alt="propict" className='propic'/></li>
           <li><a href="/login">LogIn</a></li>
           <li><a href="/posts">Posts</a></li>
+          <li><a href="/createpost">Create a Post</a></li>
 
          
    
@@ -70,7 +73,7 @@ const App = () =>{
         <Route path ="/" element={<Sign/>}/>
         <Route path ="/home" element={<Main/>}/>
         <Route path ="/posts" element={<PostDetails posts={posts}/>}/>
-        
+        <Route path='/createpost' element={<CreatePost />}/>
         <Route path ="/profil" element={<Profil/>}/>
         {/* <Route path="User" element={<SingleProfile single={single}/>}/> */}
         

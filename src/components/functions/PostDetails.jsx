@@ -1,11 +1,11 @@
 import React from 'react'
 import Posts from './Posts.jsx'
-const PostDetails = () => {
+const PostDetails = ({posts}) => {
   return (
     <div>
-      {PostAddSharp.map((post)=>{
+      {posts.map((post,index)=>{
         return (
-            <Posts post={post}/>
+            <Posts key={index} post={post}/>
         )
       })}
     </div>

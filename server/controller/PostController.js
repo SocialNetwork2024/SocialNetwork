@@ -23,6 +23,17 @@ const getAll = async (req, res) => {
     })
 }
 
+const getLikesComments = async (req, res) => {
+    const id = req.params.id
+    await postModel.fetchLikesComments(id)
+    .then((result)=>{
+        res.status(200).json(result)
+    })
+    .catch((err)=>{
+        res.status(500).send(err)
+    })
+}
+
 const addPost = async (req, res) => {
     const body = req.body.body
     const file = req.body.file
@@ -83,4 +94,4 @@ const deletePost = (req, res) => {
     }
 }
 
-module.exports = {getAll, addPost, editPost, deletePost}
+module.exports = {getAll, getLikesComments, addPost, editPost, deletePost}
