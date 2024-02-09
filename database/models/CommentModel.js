@@ -1,4 +1,4 @@
-const db = require('../index')
+const db = require('../index2')
 const { DataTypes, where } = require('sequelize')
 
 const commentSchema = {
