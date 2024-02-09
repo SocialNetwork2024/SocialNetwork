@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios'
-import Main from '../Sections/Main'
+// import Main from '../Sections/Main'
 const Posts = ({post}) => {
 
 
@@ -39,10 +39,10 @@ const handleDelete=(id)=>{
 <button onClick={(id)=>{handleUpdate(post.id,{
     body:body,
     file:file
-})}}> Update  </button>
+});window.location.reload()}}> Update  </button>
 
 
-<button onClick={()=>{handleDelete(post.id)}}> Delete </button>
+<button onClick={()=>{handleDelete(post.id);window.location.reload()}}> Delete </button>
 
 
     </div>

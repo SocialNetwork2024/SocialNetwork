@@ -21,8 +21,8 @@ const handleCreate=(obj)=>{
 
 
     return (
-      
-      <React.Fragment>
+      <>
+       <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
         
@@ -37,15 +37,15 @@ const handleCreate=(obj)=>{
             file:file
         })
       }}>Upload</Button>
-    <div>
-      {/* console.log(post,"post") */}
-      {/* <UploadWigdet /> */}
-    </div>
+
       
        
         </Box>
       </Container>
     </React.Fragment>
+    
+      </>
+     
     )
 }
 
