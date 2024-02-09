@@ -24,4 +24,8 @@ const deleteComment = (id) => {
     return Comment.destroy({where: {id: id}})
 }
 
-module.exports = {Comment, createComment, updateComment, deleteComment}
+const getComment=()=>{
+    return Comment.findAll()
+}
+
+module.exports = {Comment, createComment, updateComment, deleteComment,getComment}

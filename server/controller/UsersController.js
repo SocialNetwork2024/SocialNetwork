@@ -3,7 +3,7 @@ const jwt=require('jsonwebtoken')
 const bcrypt=require('bcrypt')
 
 
-const {addaccount,enter,connection}=require('../../database/index')
+const {addaccount,enter,connection,getall,remove}=require('../../database/index')
 const { authenticateToken } =require('../middleware/token')
 const secretKey = process.env.JWT_SECRET;
 console.log(secretKey,"secretkey")
@@ -30,6 +30,31 @@ module.exports.Addaccount = async (req, res) => {
 }
 };
 
+module.exports.destroy=function(req,res){
+  remove(req.params.idlogin,(error,results)=>{
+    if (error) {
+      console.error('Error:', error);
+  } else {
+      console.log( results)
+      res.json(results);
+  }
+  })
+}
+
+module.exports.getAll=function(req,res){
+  getall( (err, results) => {
+    if (err) {
+        console.error('Error:', err);
+    } else {
+        console.log( results)
+        res.json(results);
+    }
+})
+}
+
+module.exports.getOne=function(req,res){
+  
+}
 
 
     
