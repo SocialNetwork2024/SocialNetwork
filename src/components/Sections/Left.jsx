@@ -1,5 +1,5 @@
 import React from "react";
-import ActionAreaCard from "../../Post.jsx";
+import LeftCard from "./LeftCard";
 
 
 const Left =()=> {
@@ -9,7 +9,7 @@ const Left =()=> {
         <div style={{"boder":"1px solid black","backgroundColor":"blue","height":"120px","margin":"20px"}}>
 
         </div>
-        <ActionAreaCard />
+        <LeftCard />
         
         <div>
       

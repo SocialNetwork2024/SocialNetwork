@@ -10,7 +10,7 @@ import Login from './components/SignUp/Login/Login.jsx';
 import Main from './components/Sections/Main.jsx';
 import Profil from './components/Profile/Main.jsx'
 import Users from './components/functions/Users.jsx'
-import PostDetails from './components/functions/PostDetails.jsx'
+// import PostDetails from './components/functions/PostDetails.jsx'
 import axios from 'axios'
 
 
@@ -54,8 +54,8 @@ const App = () =>{
       <Routes>
         {/* <Route path="users" element={<UsersDetails  setSingle={setSingle} users={users} single={single}       />}/> */}
         <Route path ="/" element={<Sign/>}/>
-        <Route path ="/home" element={<Main/> }/>
-        <Route path ="/posts" element={<PostDetails posts={posts}/>}/>
+        <Route path ="/home" element={<Main  posts={posts}/> }/>
+        {/* <Route path ="/posts" element={<PostDetails posts={posts}/>}/> */}
         <Route path ="/profil" element={<Profil/>}/>
         {/* <Route path="User" element={<SingleProfile single={single}/>}/> */}
         

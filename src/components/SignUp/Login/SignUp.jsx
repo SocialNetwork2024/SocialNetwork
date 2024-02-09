@@ -36,7 +36,9 @@ const SignUp = () => {
     })}}   variant="contained" color="success" size='small'
    
  
-      >SignUp</Button> 
+      ><a href="/login">SingUp</a></Button> 
+      <p>Alredy Sign In ?</p>
+      <a href="/login">Login</a>
    
   </div>
   )

@@ -24,7 +24,7 @@ const Log=(obj)=>{
           email:email,
           password:password
         })
-      }} type='submit'>LogIn</button>
+      }} type='submit'><a href="/home">Login</a></button>
       {/* <Button variant="contained" color="success" size='small'>Submit</Button> */}
   </div>
   )
