@@ -35,4 +35,14 @@ const deleteComment = (req, res) => {
     })
 }
 
-module.exports = {addComment, editComment, deleteComment}
+const getAll=(req,res)=>{
+    commentModel.getComment({})
+    .then((result)=>{
+        res.status(200).json(result)
+    })
+    .catch((err)=>{
+        res.status(500).send(err)
+    })
+}
+
+module.exports = {addComment, editComment, deleteComment,getAll}

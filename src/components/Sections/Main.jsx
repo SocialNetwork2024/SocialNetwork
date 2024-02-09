@@ -2,13 +2,20 @@ import React from "react";
 import Left from "./Left";
 import Middle from "./Middle";
 import Right from "./Right"
-const Main =()=> {
+import NavBar from "./Navbar";
+
+const Main =({posts,users})=> {
     return (
+        <>
+        <NavBar/>
         <div style={{"display":"flex"}} >
-            <Left/>
-            <Middle />
+            
+            <Left users={users}/>
+            <Middle posts={posts}/>
             <Right/>
         </div>
+        </>
+        
     )
 }
 export default Main

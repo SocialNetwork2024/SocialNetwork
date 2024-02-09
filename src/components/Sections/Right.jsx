@@ -1,5 +1,5 @@
 import React from "react";
-import ActionAreaCard from "../../Post";
+import RightCard from "./RightCard";
 // import Button from '@mui/material/Button';
 // import { Link } from "react-router-dom";
 const Right = ()=>{
@@ -10,7 +10,7 @@ const Right = ()=>{
             <h3>Friends List</h3>
             <div style={{"border":"1px solid black","margin":"15px"}}>
            
-              <ActionAreaCard/>
+              <RightCard/>
            
             </div>
           
