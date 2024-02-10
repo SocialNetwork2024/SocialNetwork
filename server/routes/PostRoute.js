@@ -5,7 +5,7 @@ router.get('/getall', controller.getAll)
 
 router.get('/getlikeComment/:id', controller.getLikesComments)
 
-router.post('/add', controller.addPost)
+router.post('/add/:userid', controller.addPost)
 
 router.put('/edit/:id', controller.editPost)
 

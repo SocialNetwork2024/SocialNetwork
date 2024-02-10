@@ -3,7 +3,7 @@ const controller = require('../controller/LikeController')
 
 router.get('/getlikes/:id', controller.numbersOfLikes)
 
-router.post('/add/:id', controller.like)
+router.post('/add/:postid', controller.like)
 
 router.delete('/delete/:id', controller.dislike)
 

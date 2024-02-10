@@ -37,8 +37,9 @@ const getLikesComments = async (req, res) => {
 const addPost = async (req, res) => {
     const body = req.body.body
     const file = req.body.file
+    const userId = req.params.userid
     try{
-        postModel.createPost(body, file)
+        postModel.createPost(body, file, userId)
         .then((result)=>{
             res.status(201).json(result)
         })

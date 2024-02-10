@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const controller = require('../controller/CommentController')
 
-router.post('/add/:id', controller.addComment)
+router.post('/add/:postid', controller.addComment)
 
 router.put('/edit/:id', controller.editComment)
 

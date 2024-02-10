@@ -11,12 +11,12 @@ const likeSchema = {
 
 const Like = db.define('likes', likeSchema)
 
-const saveLike = (id) => {
-    return Like.create({postId: id})
+const saveLike = (postId, userId) => {
+    return Like.create({postId: postId, userId: userId})
 }
 
 const deletLike = (id) => {
-    return Like.destroy({where: {id, id}})
+    return Like.destroy({where: {id: id}})
 }
 
 const countLikes = (id) => {

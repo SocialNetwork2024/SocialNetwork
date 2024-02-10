@@ -1,5 +1,5 @@
 const db = require('../index')
-const { DataTypes, where } = require('sequelize')
+const { DataTypes } = require('sequelize')
 
 const commentSchema = {
     id: {
@@ -12,8 +12,8 @@ const commentSchema = {
 
 const Comment = db.define('comments', commentSchema)
 
-const createComment = (id, data) => {
-    return Comment.create({content: data, postId: id})
+const createComment = (postId, userId, data) => {
+    return Comment.create({content: data, postId: postId, userId: userId})
 }
 
 const updateComment = (id, data) => {

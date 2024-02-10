@@ -1,9 +1,11 @@
 const commentModel = require('../../database/models/CommentModel')
 
 const addComment = (req, res) => {
-    const id = req.params.id
+    const postId = req.params.postid
     const data = req.body.content
-    commentModel.createComment(id, data)
+    const userId = req.body.userId
+
+    commentModel.createComment(postId, userId, data)
     .then((result)=>{
         res.status(201).json(result)
     })

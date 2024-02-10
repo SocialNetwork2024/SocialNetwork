@@ -1,9 +1,10 @@
 const likeModel = require('../../database/models/LikeModel')
 
 const like = (req, res) => {
-    const id = req.params.id
+    const postId = req.params.postid
+    const userId = req.body.userId
     try{
-        likeModel.saveLike(id)
+        likeModel.saveLike(postId, userId)
         res.status(201).send('like post')
     }
     catch(err){
