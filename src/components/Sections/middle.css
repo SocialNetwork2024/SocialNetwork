@@ -1,0 +1,7 @@
+.add{
+    display: flex;
+    width: 500px;
+    border: 5px salmon solid;
+    justify-content:center;
+    flex-direction: column;
+}
