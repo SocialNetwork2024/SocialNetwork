@@ -37,6 +37,7 @@ const addAccount = async (req, res) => {
         const values = {
           name: name,
           email: email,
+
           password: hashed
         }
 
@@ -77,8 +78,9 @@ const login = async (req, res) => {
             try {
               const isMatch = bcrypt.compare(password, hashedPwd)
               if (isMatch) {
-                const token = jwt.sign({ email: user.email }, secretKey)
-                res.send({ message: 'User exists', token })
+                const token = jwt.sign({ email: user.email,id:user.id,name:user.name }, secretKey)
+
+                res.send({ message: 'User exists', user:results.dataValues,token:token })
               } else {
                 console.log("Incorrect email or password")
                 res.status(401).send({ error: 'Incorrect email or password' })

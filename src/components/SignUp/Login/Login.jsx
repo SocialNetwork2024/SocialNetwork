@@ -1,16 +1,21 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 // import Button from '@mui/material/Button';
 
 const Login = () => {
 
 const [email,setEmail]=useState('')
 const [password,setPassWord]=useState('')
-
+const navigate=useNavigate()
 const Log=(obj)=>{
-  axios.get("http://localhost:3000/login",obj)
-  .then((res)=>{console.log("logged in")})
-  .catch((error)=>{console.log("error")})
+  axios.post("http://localhost:3000/user/login",obj)
+  .then((res)=>{console.log("logged in")
+  localStorage.setItem("userInfo",JSON.stringify(res.data))
+  navigate('/home')
+  })
+  .catch((error)=>{console.log(error)})
+  
 }
 
   return (
@@ -24,7 +29,7 @@ const Log=(obj)=>{
           email:email,
           password:password
         })
-      }} type='submit'><a href="/home">Login</a></button>
+      }} type='submit'>Login</button>
       {/* <Button variant="contained" color="success" size='small'>Submit</Button> */}
   </div>
   )

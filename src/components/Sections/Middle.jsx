@@ -13,9 +13,13 @@ import { useEffect } from 'react';
 
 const Middle =({posts,users})=> {
   console.log(users)
+  const connectedUser=JSON.parse(localStorage.getItem("userInfo"))
+  console.log(connectedUser.user.id)
   const [lik,setLik]=useState(true)
+  const [jame,setJame]=useState()
 
   const[content,setContent]=useState('')
+  const[show,setHide]=useState(true)
  
 const addComment=(id,content)=>{
   axios.post(`http://localhost:3000/comment/add/${id}`,content)
@@ -37,16 +41,21 @@ const handleDelete=(id)=>{
     .catch((error)=>{console.log("error")})
 }
 
-
+console.log(show)
 const like=(id,userId)=>{
   axios.post(`http://localhost:3000/like/add/${id}`,{userId})
-  .then((res)=>{console.log("liked")})
-    .catch((error)=>{console.log("error")})
+  .then((res)=>{console.log("liked")
+  setJame(res.data)}
+  )
+    .catch((error)=>{console.log("error")
+    })
+    setHide(false)
 }
 const deslike=(id)=>{
   axios.delete(`http://localhost:3000/like/delete/${id}`)
   .then((res)=>{console.log("desliked")})
     .catch((error)=>{console.log("error")})
+    setHide(true)
 }  
 
 
@@ -90,9 +99,11 @@ const deslike=(id)=>{
                         );window.location.reload()
                           
                         }}>add a Comment</button>
-                        <button onClick={()=>{like(post?.id,user.id)}}>Like </button>
-
-
+                        {}
+                        { show?
+                        <button onClick={()=>{like(post?.id,connectedUser.user.id)}}>Like </button>:
+                        <button onClick={()=>{deslike(jame.id)}}>UnLike </button>
+                      }
                   
                                       <p style={{"fontSize":"16px","textAlign":"left"}}>{post?.comments?.map((comment)=>{
                                         return (

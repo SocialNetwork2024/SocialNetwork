@@ -10,7 +10,9 @@ const Create = () => {
   const [view, setView] = useState(false)
   const [refresh, setRefresh] = useState(false)
 
-  const add = (userId,data) => {
+  const add = (data) => {
+  const x=JSON.parse(localStorage.getItem("userInfo"))
+        const userId=x.user.id
     axios.post(`http://localhost:3000/post/add/${userId}`, data)
     .then(()=>{
       console.log('succes');
