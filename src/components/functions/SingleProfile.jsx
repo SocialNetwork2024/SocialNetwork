@@ -1,6 +1,9 @@
 import React from 'react'
 
-const SingleProfile = ({single}) => {
+const SingleProfile = () => {
+
+
+
   return (
     <div>
       <div style={{"display":"grid","marginLeft":"200px"}}>

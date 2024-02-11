@@ -1,7 +1,7 @@
 const db = require('../index2')
 const { DataTypes } = require('sequelize')
-const {Comment} = require('../models/CommentModel')
-const {Like} = require('../models/LikeModel')
+const {Comment} = require('./CommentModel')
+const {Like} = require('./LikeModel')
 
 const postSchema = {
     id: {
@@ -15,11 +15,6 @@ const postSchema = {
 
 const Post = db.define('posts', postSchema)
 
-Post.hasMany(Comment)
-Post.hasMany(Like)
-
-db.sync()
-
 const fetchAllPost = () => {
     return Post.findAll({include: [Like, Comment]})
 }
@@ -28,8 +23,8 @@ const fetchLikesComments = (id) => {
     return Post.findByPk(id, {include: [Like, Comment]})
 }
 
-const createPost = (data, file) => {
-    return Post.create({body: data, file: file})
+const createPost = (data, file, userId) => {
+    return Post.create({body: data, file: file, userId: userId})
 }
 
 const updatePost = (id, data) => {

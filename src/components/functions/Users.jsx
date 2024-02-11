@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '@mui/material/Button';
+import Widget from '../UploadWiget'
 const Users = () => {
   return (
     <div className="container">
@@ -8,16 +9,13 @@ const Users = () => {
      
 <label>User Name</label>
 <input type="text" />
-
 <label>Email Adress</label>
 <input type="email" />
-
 <label>OldPassword</label>
 <input type="passord" />
 <label>Type Your New Passowrd</label>
 <input type="passord" />
-<label>Confirm Your Password</label>
-<input type="password" />
+<Widget/>
 
 <Button>Update</Button>
 

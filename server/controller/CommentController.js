@@ -1,9 +1,11 @@
 const commentModel = require('../../database/models/CommentModel')
 
 const addComment = (req, res) => {
-    const id = req.params.id
+    const postId = req.params.postid
     const data = req.body.content
-    commentModel.createComment(id, data)
+    const userId = req.body.userId
+
+    commentModel.createComment(postId, userId, data)
     .then((result)=>{
         res.status(201).json(result)
     })
@@ -35,14 +37,16 @@ const deleteComment = (req, res) => {
     })
 }
 
-const getAll=(req,res)=>{
-    commentModel.getComment({})
-    .then((result)=>{
-        res.status(200).json(result)
-    })
-    .catch((err)=>{
-        res.status(500).send(err)
-    })
-}
+// const getAll=(req,res)=>{
+//     commentModel.getComment({})
+//     .then((result)=>{
+//         res.status(200).json(result)
+//     })
+//     .catch((err)=>{
+//         res.status(500).send(err)
+//     })
+// }
 
-module.exports = {addComment, editComment, deleteComment,getAll}
+module.exports = {addComment, editComment, deleteComment
+    // ,getAll
+}

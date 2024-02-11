@@ -1,4 +1,7 @@
 import React from "react"; 
+import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
 const NavBar=()=>{
 return (
@@ -7,7 +10,13 @@ return (
           <li><a href="/home">Home</a></li>
           <li><input type="text" /><button>Search</button></li>
           <li><a href="/profil">Profil</a></li>
-            <li><img src="https://media.istockphoto.com/id/1388253782/photo/positive-successful-millennial-business-professional-man-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=v0FzN5RD19wlMvrkpUE6QKHaFTt5rlDSqoUV1vrFbN4=" alt="propict" className='propic'/></li>
+            <li><Stack direction="row" spacing={1}>
+      <Chip
+        avatar={<Avatar alt="Natacha" src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" />}
+        label="UserName"
+        variant="outlined"
+      />
+    </Stack></li>
           {/* <li><a href="/posts">Posts</a></li> */}
           <li><a href="/login">Login</a></li>
           {/* <li><div>

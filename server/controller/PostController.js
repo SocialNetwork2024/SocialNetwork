@@ -1,17 +1,17 @@
 const postModel = require('../../database/models/PostModel')
-const cloudinary = require('cloudinary').v2
+// const cloudinary = require('cloudinary').v2
       
-cloudinary.config({ 
-  cloud_name: 'dixniotyg', 
-  api_key: '471336258875898', 
-  api_secret: 'U13jKIyrfNeo4_c0-iKYlarGFrU',
-})
+// cloudinary.config({ 
+//   cloud_name: 'dixniotyg', 
+//   api_key: '471336258875898', 
+//   api_secret: 'U13jKIyrfNeo4_c0-iKYlarGFrU',
+// })
 
-const options = {
-    use_filename: true,
-    unique_filename: false,
-    overwrite: true,
-}
+// const options = {
+//     use_filename: true,
+//     unique_filename: false,
+//     overwrite: true,
+// }
 
 const getAll = async (req, res) => {
     await postModel.fetchAllPost()
@@ -37,30 +37,19 @@ const getLikesComments = async (req, res) => {
 const addPost = async (req, res) => {
     const body = req.body.body
     const file = req.body.file
-    if(!!file){
-        try{
-            const cloud = await cloudinary.uploader.upload(file, options)
-            postModel.createPost(body, cloud.secure_url)
-            .then((result)=>{
-                res.status(201).json(result)
-            })
-            .catch((err)=>{
-                res.status(500).json(err)
-            })
-        }
-        catch(err){
-            res.status(500).json(err)
-        }
-    }
-    else {
-        postModel.createPost(body)
+    const userId = req.params.userid
+    try{
+        postModel.createPost(body, file, userId)
         .then((result)=>{
             res.status(201).json(result)
         })
         .catch((err)=>{
             res.status(500).json(err)
-        })}
-    
+        })
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
 }
 
 const editPost = async (req, res) => {
@@ -68,8 +57,7 @@ const editPost = async (req, res) => {
     const file = req.body.file
     const id = req.params.id
     try{
-        const cloud = await cloudinary.uploader.upload(file, options)
-        const data = {body: body, file: cloud.secure_url}
+        const data = {body: body, file: file}
         postModel.updatePost(id, data)
         .then((result)=>{
             res.status(201).json(result)

@@ -2,17 +2,19 @@
 import React, {useState,useEffect} 
 from 'react'
 
-import './App.css';
+
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import Sign from './components/SignUp/Login/SignUp.jsx'
 import Login from './components/SignUp/Login/Login.jsx';
+import Sign from './components/SignUp/Login/SignUp.jsx'
 import Main from './components/Sections/Main.jsx';
 import Profil from './components/Profile/Main.jsx'
 import Users from './components/functions/Users.jsx'
-// import PostDetails from './components/functions/PostDetails.jsx'
 import axios from 'axios'
+import UsersDetails from './components/functions/UsersDetails.jsx';
 
-
+import './App.css';
+// import './Login.css'
+// import './Signin.css'
 
 const App = () =>{
   
@@ -25,15 +27,15 @@ const App = () =>{
     axios.get('http://localhost:3000/post/getAll')
     .then((res)=>{console.log(res.data,"posts");
       setPosts(res.data)})
-    .catch((error)=>{console.log("error")})    
-  },[])
-  
-useEffect(()=>{
-  axios.get('http://localhost:3000/getAll')
+    .catch((error)=>{console.log("error")})
+    axios.get('http://localhost:3000/user/getAll')
   .then((res)=>{console.log(res.data,"users");
     setUsers(res.data)})
-  .catch((error)=>{console.log("error")})    
-},[])
+  .catch((error)=>{console.log("error")})        
+  },[])
+  
+
+
 
   
       return (
@@ -42,15 +44,15 @@ useEffect(()=>{
       <header className="App-header">
       <BrowserRouter>
       <Routes>
-        {/* <Route path="users" element={<UsersDetails  setSingle={setSingle} users={users} single={single}       />}/> */}
+     
+        <Route path="/login" element={<Login/>}/>
         <Route path ="/" element={<Sign/>}/>
         <Route path ="/home" element={<Main  posts={posts} users={users}/> }/>
-        {/* <Route path ="/posts" element={<PostDetails posts={posts}/>}/> */}
+        <Route path="user" element={<UsersDetails />}/>
         <Route path ="/profil" element={<Profil/>}/>
-        {/* <Route path="User" element={<SingleProfile single={single}/>}/> */}
+    
         
         <Route path="/edit" element={<Users/>}/>
-        <Route path="/login" element={<Login/>}/>
       </Routes>
       </BrowserRouter>
      
@@ -64,6 +66,3 @@ useEffect(()=>{
   
   export default App;
   
-  // import UsersDetails from './components/UsersDetails.jsx';
-  // import SingleProfile from './components/SingleProfile.jsx';
-//   const [users, setUsers] = useState([]);
