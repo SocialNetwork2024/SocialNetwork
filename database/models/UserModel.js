@@ -8,9 +8,10 @@ const userSchema = {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey:true,
     },
-    name: DataTypes.STRING,
+    name:DataTypes.STRING,
+
     email: DataTypes.STRING,
     password: DataTypes.STRING
 }
@@ -23,7 +24,7 @@ User.hasMany(Comment)
 Post.hasMany(Comment)
 Post.hasMany(Like)
 
-db.sync({alter: true})
+db.sync({force: true})
 
 const fetchAllUsers = () => {
     return User.findAll({include: [Post, Comment, Like]})

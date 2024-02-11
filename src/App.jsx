@@ -10,7 +10,7 @@ import Main from './components/Sections/Main.jsx';
 import Profil from './components/Profile/Main.jsx'
 import Users from './components/functions/Users.jsx'
 import axios from 'axios'
-import UsersDetails from './components/functions/UsersDetails.jsx';
+
 
 import './App.css';
 // import './Login.css'
@@ -21,7 +21,7 @@ const App = () =>{
   
   const [posts, setPosts] = useState([]);
   const [users,setUsers] =useState([])
-  
+  const[loggedUser,setLoggedUser]=useState({})
   
   useEffect(()=>{
     axios.get('http://localhost:3000/post/getAll')
@@ -35,7 +35,14 @@ const App = () =>{
   },[])
   
 
-
+const loggedIn= async(data)=>{
+axios.get('http://localhost:3000/user/login',data)
+.then((res)=>{console.log("succes");setLoggedUser(res.data)
+})
+.catch((error)=>{
+  console.log("error")
+})
+}
 
   
       return (
@@ -47,11 +54,8 @@ const App = () =>{
      
         <Route path="/login" element={<Login/>}/>
         <Route path ="/" element={<Sign/>}/>
-        <Route path ="/home" element={<Main  posts={posts} users={users}/> }/>
-        <Route path="user" element={<UsersDetails />}/>
-        <Route path ="/profil" element={<Profil/>}/>
-    
-        
+        <Route path ="/home" element={<Main  posts={posts} users={users} user={loggedUser}/> }/>
+        <Route path ="/profil" element={<Profil users={users} loggedIn={loggedIn}/>}/>
         <Route path="/edit" element={<Users/>}/>
       </Routes>
       </BrowserRouter>

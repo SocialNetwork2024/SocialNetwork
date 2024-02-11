@@ -5,15 +5,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea, CardActions } from '@mui/material';
 import FormDialog from '../functions/Something'
-const LeftCard=({user})=>{
+const LeftCard=()=>{
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          width="140"
+
+          image="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/close-up-of-hawk-katherine-pocklington.jpg"
+
+          alt="user Image"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

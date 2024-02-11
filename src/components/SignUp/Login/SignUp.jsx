@@ -12,7 +12,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
 
   const handleCreate = (obj) => {
-    axios.post('http://localhost:3000/signup', obj)
+    axios.post('http://localhost:3000/user/signup', obj)
       .then((res) => { console.log("created") })
       .catch((error) => { console.log("error") })
   }
@@ -35,7 +35,7 @@ const SignUp = () => {
         <input className="input2" type="email" placeholder="Email" onChange={(e) => { setEmail(e.target.value) }} required />
 
         <label className='l1'>Passowrd</label>
-        <input className="input2" type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} minLength={8} required />
+        <input className="input2" type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }}  required />
 
         <button className="btn2" onClick={() => {
           handleCreate({

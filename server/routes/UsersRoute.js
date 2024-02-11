@@ -24,3 +24,4 @@ router.get('/login',controller.login)
 router.delete('/delete/:id', controller.destroy)
 
 module.exports = router
+// {getAll, getOneUser, addAccount, login, destroy}

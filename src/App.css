@@ -76,8 +76,9 @@ table, th, tr {
 
 .middle{
 width: 60%;
-height: 100vh;
+/* height: 100vh; */
 background-color:lightcyan;
+border-radius: 15px;
 }
 /* style={{"width":"60%","height":"400px"}} */
 /* style={{"width":"70%","height":"400px"}} */
@@ -85,11 +86,13 @@ background-color:lightcyan;
 width: 25%;
 height: 50vh;
 background-color: lightskyblue;
+
 }
 .sider {
 width: 15%;
 height: 100vh;
 background-color: lightskyblue;
+
 }
 
 .sectionul{
@@ -107,6 +110,7 @@ align-items: center;
 textarea {
   resize: none;
   height: 80px;
+  border:none;
   /* width: 600px; */
 }
 

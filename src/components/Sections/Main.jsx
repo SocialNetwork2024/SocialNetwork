@@ -4,14 +4,14 @@ import Middle from "./Middle";
 import Right from "./Right"
 import NavBar from "./Navbar";
 
-const Main =({posts,user})=> {
+const Main =({posts,users,user})=> {
     return (
         <>
         <NavBar/>
         <div style={{"display":"flex"}} >
             
             <Left user={user}/>
-            <Middle posts={posts} user={user}/>
+            <Middle posts={posts} users={users}/>
             <Right/>
         </div>
         </>
