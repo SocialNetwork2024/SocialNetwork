@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import "./login.css"
+// import "./login.css"
 
 const Login = () => {
 
@@ -15,10 +15,10 @@ const Login = () => {
 
   return (
     <>
-   <div className='background'>
+  <div className="background">
         <div className="shape"></div>
         <div className="shape"></div>
-      </div>
+    </div>
 
       <form>
       <h3>Log in</h3>
@@ -32,6 +32,10 @@ const Login = () => {
             password: password
           })
         }} type='submit'><a href="/home">Login</a></button>
+                <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div>
       </form> 
       
        </>

@@ -1,0 +1,48 @@
+.navbar {
+  background-color: #333;
+  display: flex;
+  min-height: 50px;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin-right: 15px;
+}
+
+.navbar li:first-child a {
+  text-decoration: none;
+}
+
+.navbar li input[type="text"] {
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.navbar li button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar li img {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+}
+
+.navbar li:last-child a {
+  text-decoration: none;
+}

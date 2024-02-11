@@ -5,9 +5,9 @@ import Login from './components/SignUp/Login/Login.jsx';
 import Main from './components/Sections/Main.jsx';
 import Profil from './components/Profile/Main.jsx'
 import Users from './components/functions/Users.jsx'
-// import PostDetails from './components/functions/PostDetails.jsx'
 import axios from 'axios'
 
+// import "../src/components/SignUp/Login/login.css"
 
 
 const App = () =>{
@@ -34,7 +34,6 @@ useEffect(()=>{
   
       return (
         <div className="App">
-      
       <header className="App-header">
       <BrowserRouter>
       <Routes>

@@ -12,7 +12,7 @@
     position: absolute;
     border-radius: 50%;
 }
-.shape .one {
+.shape:first-child{
     background: linear-gradient(
         #1845ad,
         #23a2f6
@@ -20,7 +20,7 @@
     left: -80px;
     top: -80px;
 }
-.shape .to {
+.shape:last-child{
     background: linear-gradient(
         to right,
         #ff512f,
@@ -29,7 +29,7 @@
     right: -30px;
     bottom: -80px;
 }
-.shape .ther{
+/* .shape .ther{
     background: linear-gradient(
         to right,
         #6dff2f,
@@ -46,7 +46,7 @@
     );
     right: -70px;
     bottom: -50px;
-}
+} */
 form{
     height: 520px;
     width: 400px;
