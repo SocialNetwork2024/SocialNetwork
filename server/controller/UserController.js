@@ -1,12 +1,11 @@
 const userModel = require('../../database/models/UserModel')
 require("dotenv").config()
-const jwt=require('jsonwebtoken')
-const bcrypt=require('bcrypt')
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 const { authenticateToken } =require('../middleware/token')
-const secretKey = process.env.JWT_SECRET;
+const secretKey = process.env.JWT_SECRET; // not working
 console.log(secretKey,"secretkey")
-
 
 const getAll = async (req, res) => {
     await userModel.fetchAllUsers()
@@ -41,13 +40,14 @@ const addAccount = async (req, res) => {
 
     await userModel.findUser(email, name)
     .then((result)=>{
+        console.log(result)
         if(!!result){
             res.status(409).send('User with the same email or name already exists')
         }
         else{
             userModel.saveUser(values)
             .then((result)=>{
-                const token = jwt.sign({name: name}, secretKey)
+                const token = jwt.sign({name: name}, '0000')
                 res.status(201).json({result, token})
             })
             .catch((err)=>{
@@ -67,21 +67,30 @@ const addAccount = async (req, res) => {
 const login = async (req, res) => {
     const email = req.body.email
     const password = req.body.password
-    await userModel.findUser(email)
+    await userModel.findUser(email, password)
     .then((results)=>{
         if (!!results) {
             const user = results.dataValues
             const hashedPwd = user.password
             try {
-              const isMatch = bcrypt.compare(password, hashedPwd)
-              if (isMatch) {
-                const token = jwt.sign({ email: user.email }, secretKey)
-                res.send({ message: 'User exists', token })
-              } else {
-                console.log("Incorrect email or password")
-                res.status(401).send({ error: 'Incorrect email or password' })
-              }
-            } catch (error) {
+              bcrypt.compare(password, hashedPwd)
+              .then((result)=>{
+                console.log(result)
+                if(!!result){
+                    const token = jwt.sign({ email: user.email }, '0000')
+                    console.log(token);
+                    res.status(200).json({ message: 'User exists', token })
+                }
+                else {
+                    console.log("Incorrect email or password")
+                    res.status(401).send({ error: 'Incorrect email or password' })
+                }
+              })
+              .catch((err)=>{
+                res.status(500).send(err)
+              })
+            }
+            catch (error) {
               console.error(error);
               res.status(500).send({ error: 'Internal server error' })
             }
@@ -91,7 +100,7 @@ const login = async (req, res) => {
           }
     })
     .catch((err)=>{
-        res.staus(500).send(err)
+        res.status(500).send(err)
     })
   }
 
