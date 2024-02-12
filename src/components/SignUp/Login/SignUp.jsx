@@ -1,7 +1,7 @@
 import React,
 { useState } from 'react'
 import axios from 'axios'
-// import "./sign.css"
+import "./sign.css"
 const SignUp = () => {
 
   const [name, setName] = useState('')
