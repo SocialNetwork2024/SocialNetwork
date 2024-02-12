@@ -1,4 +1,4 @@
-const db = require('../index2')
+const db = require('../index')
 const { DataTypes } = require('sequelize')
 
 const commentSchema = {
@@ -24,10 +24,4 @@ const deleteComment = (id) => {
     return Comment.destroy({where: {id: id}})
 }
 
-// const getComment=()=>{
-//     return Comment.findAll()
-// }
-
-module.exports = {Comment, createComment, updateComment, deleteComment
-    // ,getComment
-}
+module.exports = {Comment, createComment, updateComment, deleteComment}

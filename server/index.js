@@ -3,7 +3,7 @@ const cors = require('cors')
 const postRouter = require('./routes/PostRoute')
 const commentRouter = require('./routes/CommentRoute')
 const likeRouter = require('./routes/LikeRoute')
-const userRouter = require('./routes/UsersRoute')
+const userRouter = require('./routes/UserRoute')
 
 const PORT = 3000
 const app = express()

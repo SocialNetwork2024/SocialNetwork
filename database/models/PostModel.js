@@ -1,4 +1,4 @@
-const db = require('../index2')
+const db = require('../index')
 const { DataTypes } = require('sequelize')
 const {Comment} = require('./CommentModel')
 const {Like} = require('./LikeModel')

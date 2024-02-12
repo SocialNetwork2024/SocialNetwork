@@ -4,8 +4,10 @@ const like = (req, res) => {
     const postId = req.params.postid
     const userId = req.body.userId
     try{
-        likeModel.saveLike(postId, userId)
-        res.status(201).send('like post')
+        likeModel.saveLike(postId, userId).then((result)=>{
+            res.status(201).json(result)
+        })
+        
     }
     catch(err){
         res.status(500).send(err)

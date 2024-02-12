@@ -1,39 +1,23 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import {CardActionArea, CardActions } from '@mui/material';
-import FormDialog from '../functions/Something'
+
+
 const LeftCard=()=>{
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          width="140"
-
-          image="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/close-up-of-hawk-katherine-pocklington.jpg"
-
-          alt="user Image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          User Name : 
-           
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Email : 
-           gitHub : 
-           LinkedIn :
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <FormDialog  />
-      </CardActions>
-    </Card>
+    <div class="e20_52">
+      <div style={{"display":"flex","alignItems":"center","gap":"20px"}}>
+      <img class="e21_86" src='https://res.cloudinary.com/ali22/image/upload/v1698261372/koss/rgh01odm3ydj2mzdcyhd.jpg' alt="thing"/>
+      <span class="e21_88">Aymen slim</span>
+      </div>
+    
+      <div style={{"display":"flex","flexDirection":"column","alignItems":"center"}}>
+      <span class="e21_89">hobby : surfing ,camping </span>
+      <span class="e21_89">From : Sousse </span>
+      <span class="e21_89">living : Tunis </span>
+      <span class="e21_89">Gender : Male</span>
+      </div>
+      
+      <div class="e21_94"></div>
+    </div>
   );
 }
 export default LeftCard

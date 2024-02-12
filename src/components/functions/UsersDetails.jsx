@@ -1,28 +1,25 @@
-import React from 'react'
-import Main from '../Sections/Main'
+import React
+// ,{useState}
+ from 'react'
+// import axios from 'axios'
+// import Allusers from './Allusers.jsx'
+const UsersDetails = (
+    // {users,setSingle,single}
+    ) => {
+
+    
 
 
-const UsersDetails = ({users}) => {
-  console.log(users,"users")
   return (
     <div>
-      {users.map((user)=>{
-        
+      {/* {users.map((user)=>{
         return (
-
-<Main user={user}/>
-
-
-
-
+           <Allusers user={user} single={single} />
         )
-      })}
+      })} */}
       
     </div>
   )
 }
-
-  
-
 
 export default UsersDetails

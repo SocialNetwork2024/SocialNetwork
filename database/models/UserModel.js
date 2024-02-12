@@ -1,4 +1,4 @@
-const db = require('../index2')
+const db = require('../index')
 const { DataTypes, Sequelize } = require('sequelize')
 const {Comment} = require('../models/CommentModel')
 const {Like} = require('../models/LikeModel')
@@ -8,27 +8,44 @@ const userSchema = {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        primaryKey:true,
+        primaryKey: true
     },
-    name:DataTypes.STRING,
-
+    name: DataTypes.STRING,
     email: DataTypes.STRING,
+    age:DataTypes.INTEGER,
+    // image:DataTypes.STRING,
+    // hometown:DataTypes.STRING,
+    // location:DataTypes.STRING,
+    // hobby:DataTypes.STRING,
     password: DataTypes.STRING
 }
 
 const User = db.define('users', userSchema)
 
 User.hasMany(Post)
-User.hasMany(Like)
+User.hasOne(Like)
 User.hasMany(Comment)
 Post.hasMany(Comment)
 Post.hasMany(Like)
 
-db.sync({force: true})
+db.sync({alter: true})
 
 const fetchAllUsers = () => {
-    return User.findAll({include: [Post, Comment, Like]})
+    return User.findAll({
+        include: [
+            {
+                model: Post,
+                include: [
+                    Comment,
+                    Like
+                ]
+            },
+            Comment,
+            Like
+        ]
+    });
 }
+
 
 const fetchPostByUser = (id) => {
     return User.findByPk(id, {include: Post})
